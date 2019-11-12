@@ -36,7 +36,7 @@ func main() {
 		time.Sleep(1*time.Second)
 
 		// Send a random number [0-100)
-		event := cloudevents.NewEvent("1.0")
+		event := cloudevents.NewEvent("0.3")
 		event.SetType("io.d2k8s.number")
 		event.SetSource("https://github.com/n3wscott/d2k/cmd/generator")
 		event.SetDataContentType(cloudevents.ApplicationJSON)
