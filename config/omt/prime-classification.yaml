@@ -1,5 +1,5 @@
 #
-# Even/Odd Classifier
+# Prime Classifier
 #
 apiVersion: serving.knative.dev/v1
 kind: Service
@@ -9,7 +9,7 @@ metadata:
     eventing.knative.dev/autotrigger: "true"
   annotations:
     trigger.eventing.knative.dev/filter: |
-      [{"type":"io.d2k8s.number.prime"}]
+      [{"type":"io.d2k8s.number"}]
 spec:
   template:
     spec:
