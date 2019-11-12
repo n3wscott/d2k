@@ -1,0 +1,19 @@
+#
+# Number Generator Source
+#
+apiVersion: sources.eventing.knative.dev/v1alpha1
+kind: ContainerSource
+metadata:
+  name: generator
+spec:
+  template:
+    spec:
+      containers:
+        - image: github.com/n3wscott/d2k/cmd/generator
+          name: generator
+  sink:
+    apiVersion: eventing.knative.dev/v1alpha1
+    kind: Broker
+    name: default
+
+---

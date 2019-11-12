@@ -1,0 +1,31 @@
+#
+# Even/Odd Classifier
+#
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: prime-classifier
+spec:
+  template:
+    spec:
+      containers:
+        - image: github.com/n3wscott/d2k/cmd/prime
+
+---
+
+#
+# Trigger for type == io.d2k8s.number
+#
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: prime-classifier
+spec:
+  filter:
+    attributes:
+      type: io.d2k8s.number
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: prime-classifier
