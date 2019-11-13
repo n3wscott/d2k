@@ -1,19 +1,35 @@
 #
 # Number Generator Source
 #
-apiVersion: sources.eventing.knative.dev/v1alpha1
-kind: ContainerSource
+apiVersion: bindings.mattmoor.dev/v1alpha1
+kind: SinkBinding
+metadata:
+  name: bind-generator
+spec:
+  target:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: generator
+
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1alpha1
+      kind: Broker
+      name: default
+---
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: generator
 spec:
+  selector:
+    matchLabels:
+      run: debug
   template:
+    metadata:
+      labels:
+        run: debug
     spec:
       containers:
         - image: github.com/n3wscott/d2k/cmd/generator
           name: generator
-  sink:
-    apiVersion: eventing.knative.dev/v1alpha1
-    kind: Broker
-    name: default
-
----
