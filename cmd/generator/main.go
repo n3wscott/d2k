@@ -37,7 +37,7 @@ func main() {
 
 		// Send a random number [0-100)
 		event := cloudevents.NewEvent("0.3")
-		event.SetType("io.d2k8s.number")
+		event.SetType("io.ducktagon.number")
 		event.SetSource("https://github.com/n3wscott/d2k/cmd/generator")
 		event.SetDataContentType(cloudevents.ApplicationJSON)
 		if err := event.SetData(&api.Number{

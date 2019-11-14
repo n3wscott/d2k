@@ -45,7 +45,7 @@ func classify(ctx context.Context, event cloudevents.Event, r *cloudevents.Event
 	resp.SetSource("https://github.com/n3wscott/d2k/cmd/prime")
 	resp.SetDataContentType(cloudevents.ApplicationJSON)
 	if isPrime(data.Number) {
-		resp.SetType("io.d2k8s.number.prime")
+		resp.SetType("io.ducktagon.number.prime")
 		data.Classification = "prime"
 	} else {
 		// Not prime, skip.

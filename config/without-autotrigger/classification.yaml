@@ -14,7 +14,7 @@ spec:
 ---
 
 #
-# Trigger for type == io.d2k8s.number
+# Trigger for type == io.ducktagon.number
 #
 apiVersion: eventing.knative.dev/v1alpha1
 kind: Trigger
@@ -23,7 +23,7 @@ metadata:
 spec:
   filter:
     attributes:
-      type: io.d2k8s.number
+      type: io.ducktagon.number
   subscriber:
     ref:
       apiVersion: serving.knative.dev/v1

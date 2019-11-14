@@ -23,7 +23,7 @@ metadata:
 spec:
   filter:
     attributes:
-      type: io.d2k8s.number.odd
+      type: io.ducktagon.number.odd
   subscriber:
     ref:
       apiVersion: serving.knative.dev/v1

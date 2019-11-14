@@ -23,7 +23,7 @@ metadata:
 spec:
   filter:
     attributes:
-      type: io.d2k8s.number.even
+      type: io.ducktagon.number.even
   subscriber:
     ref:
       apiVersion: serving.knative.dev/v1

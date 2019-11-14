@@ -23,7 +23,7 @@ metadata:
 spec:
   filter:
     attributes:
-      type: io.d2k8s.number.prime
+      type: io.ducktagon.number.prime
   subscriber:
     ref:
       apiVersion: serving.knative.dev/v1
