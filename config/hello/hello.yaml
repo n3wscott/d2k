@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: hello
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        run: hello
+    spec:
+      containers:
+        - image: github.com/n3wscott/d2k/cmd/hello
+          name: hello
+          env:
+            - name: SINK
+              value: http://sockeye.default.d2k.n3wscott.com
+            - name: OVERRIDES
+              value: /etc/extensions
+          volumeMounts:
+          - name: config-volume
+            mountPath: /etc/extensions
+            readOnly: true
+      volumes:
+        - name: config-volume
+          configMap:
+            name: hello-config
+

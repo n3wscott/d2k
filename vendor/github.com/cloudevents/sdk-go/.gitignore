@@ -24,3 +24,6 @@ bazel-*
 # Others
 ## IDE-specific
 *.iml
+
+tmp/
+tmp/

@@ -10,7 +10,7 @@
   version = "v0.3.1"
 
 [[projects]]
-  digest = "1:078db1588b2eca641aadbfd9b5b913417d6a49c3af482c84688c9878d2880561"
+  digest = "1:9844b4fbb3e7223678fe08ad21bc75dfdd2331e424ee94c421716504bd8f55fd"
   name = "github.com/cloudevents/sdk-go"
   packages = [
     ".",
@@ -27,8 +27,16 @@
     "pkg/cloudevents/types",
   ]
   pruneopts = "UT"
-  revision = "2fa4bb1fbb4aac4d906b0173a2a408f701439b82"
-  version = "v0.10.0"
+  revision = "ee3434f2fd1fb2543e77cf8f0047957ad251f866"
+  source = "github.com/n3wscott/sdk-go"
+
+[[projects]]
+  digest = "1:abeb38ade3f32a92943e5be54f55ed6d6e3b6602761d74b4aab4c9dd45c18abd"
+  name = "github.com/fsnotify/fsnotify"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "c2828203cd70a50dcccfb2761f8b1f8ceef9a8e9"
+  version = "v1.4.7"
 
 [[projects]]
   branch = "master"
@@ -128,6 +136,14 @@
 
 [[projects]]
   branch = "master"
+  digest = "1:72f7bc975a18badcb4b05585929a12e042ab45cb0bee781aaab8044f39bd41f5"
+  name = "golang.org/x/sys"
+  packages = ["unix"]
+  pruneopts = "UT"
+  revision = "63cb32ae39b28d6bb8e7e215c1fc39dd80dcdb02"
+
+[[projects]]
+  branch = "master"
   digest = "1:06a2c8ccc3d240a260f282a6b65821536f42fed27aa1406a0eea1954ad556d3c"
   name = "golang.org/x/tools"
   packages = [
@@ -189,6 +205,7 @@
   analyzer-version = 1
   input-imports = [
     "github.com/cloudevents/sdk-go",
+    "github.com/cloudevents/sdk-go/pkg/cloudevents/transport/http",
     "github.com/kelseyhightower/envconfig",
   ]
   solver-name = "gps-cdcl"

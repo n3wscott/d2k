@@ -1,6 +1,7 @@
 [[constraint]]
   name = "github.com/cloudevents/sdk-go"
-  version = "0.10.0"
+  source = "github.com/n3wscott/sdk-go"
+  revision = "ee3434f2fd1fb2543e77cf8f0047957ad251f866"
 
 [prune]
   go-tests = true
