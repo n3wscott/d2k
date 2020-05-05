@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"image"
+	"image/gif"
 	"os"
 	"text/template"
 )
@@ -33,12 +35,20 @@ const (
 
 var colors = []string{
 	"#FECE7A",
+	"#FECE7A",
+	"#7EFF7A",
 	"#7EFF7A",
 	"#7EFFFF",
+	"#7EFFFF",
+	"#7BA3FE",
 	"#7BA3FE",
 	"#CB70FE",
+	"#CB70FE",
+	"#FC49F5",
 	"#FC49F5",
 	"#FC4EA7",
+	"#FC4EA7",
+	"#FD5258",
 	"#FD5258",
 }
 
@@ -85,6 +95,26 @@ func main() {
 		}
 		_ = f.Close()
 	}
+}
+
+func doGif() {
+	files := []string{"g1.gif", "g2.gif","g3.gif", "g2.gif"}
+
+	// load static image and construct outGif
+	outGif := &gif.GIF{}
+	for _, name := range files {
+		f, _ := os.Open(name)
+		inGif, _ := gif.Decode(f)
+		f.Close()
+
+		outGif.Image = append(outGif.Image, inGif.(*image.Paletted))
+		outGif.Delay = append(outGif.Delay, 0)
+	}
+
+	// save to out.gif
+	f, _ := os.OpenFile("out.gif", os.O_WRONLY|os.O_CREATE, 0600)
+	defer f.Close()
+	gif.EncodeAll(f, outGif)
 }
 
 /*
