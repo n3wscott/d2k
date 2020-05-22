@@ -1,0 +1,89 @@
+<html>
+<header>
+<style>
+	
+	.icon-box {
+		border: 1px solid #eee;
+		padding: 100px;
+		position: relative;
+		width:200px;
+	}
+	
+	.icon-box:before {
+		bottom: 5px;
+		display: block;
+		left: 0;
+		position: absolute;
+		text-align: center;
+		width: 100%;
+	}
+	
+	.icon-box .circle {
+		animation: circle-animation 1s;
+    animation-iteration-count: infinite;
+	}
+	
+	.icon-box .checkmark {
+		animation: checkmark-animation 1s;
+		animation-delay: 0.25s;
+    animation-iteration-count: infinite;
+	}
+  
+	.icon-box:hover .circle {
+    animation-play-state: paused;
+	}
+  
+	.icon-box:hover .checkmark {
+    animation-play-state: paused;
+	}
+	
+	#my-icon .circle {
+		opacity: 0;
+		transform: scale(0.9);
+		transform-origin: center;
+	}
+	
+	#my-icon .checkmark {
+		stroke-dasharray: 400;
+		stroke-dashoffset: 400;
+		transform-origin: center;
+		stroke: #cfd8dc;
+	}
+	
+	@keyframes circle-animation {
+		100% {
+			opacity: 1;
+			transform: scale(1);
+		}
+	}
+	
+	@keyframes checkmark-animation {
+		40% {
+			transform: scale(1);
+		}
+		55% {
+			stroke: #cfd8dc;
+			transform: scale(1.2);
+		}
+		70% {
+			transform: scale(1);
+		}
+		100% {
+			stroke-dashoffset: 0;
+			transform: scale(1);
+			stroke: #21b587;
+		}
+	}
+	
+</style>
+
+</header>
+<body>
+
+<div class="icon-box">			
+	<svg id="my-icon" aria-labelledby="svg-my-icon-title" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 290 290"><title id="svg-my-icon-title">My Icon</title><circle class="circle" cx="145" cy="145" r="124.67" style="fill:none;stroke:#cfd8dc;stroke-miterlimit:10;stroke-width:20px"/><polyline class="checkmark" points="88.75 148.26 124.09 183.6 201.37 106.32" style="fill:none;stroke:#21b587;stroke-linecap:round;stroke-linejoin:round;stroke-width:25px"/></svg>
+</div>
+
+</body>
+
+</html>

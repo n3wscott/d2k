@@ -1,0 +1,236 @@
+<html>
+<header>
+<style>
+	
+	.icon-box {
+		border: 1px solid #eee;
+		padding: 100px;
+		position: relative;
+		width:200px;
+	}
+	
+	.icon-box:before {
+		bottom: 5px;
+		display: block;
+		left: 0;
+		position: absolute;
+		text-align: center;
+		width: 100%;
+	}
+	
+	.icon-box .head {
+		animation: head-animation .5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+	}
+  
+	.icon-box .hair {
+		animation: hair-animation .5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+	}
+	
+/*  .icon-box .checkmark {
+    animation: checkmark-animation 1s;
+    animation-delay: 0.25s;
+    animation-iteration-count: infinite;
+  }
+*/
+	.icon-box:hover .head {
+    animation-play-state: paused;
+	}
+  
+/*  .icon-box:hover .checkmark {
+    animation-play-state: paused;
+  }
+*/	
+	#my-icon .head {
+		opacity: 1;
+		transform: scale(0.9);
+		transform-origin: center;
+    transform: rotate(0deg);
+	}
+	
+	/*#my-icon .checkmark {
+    stroke-dasharray: 400;
+    stroke-dashoffset: 400;
+    transform-origin: center;
+    stroke: #cfd8dc;
+  }*/
+	
+	@keyframes head-animation {
+    25% {
+      transform: rotate(20deg);
+    }
+    50% {
+      transform: rotate(0deg);
+    }
+    75% {
+      transform: rotate(-20deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+	}
+
+	@keyframes hair-animation {
+    12.5% {
+      fill: #FECE7A;
+    }
+    25% {
+      fill: #7EFF7A;
+    }
+    37.5% {
+      fill: #7EFFFF;
+    }
+    50% {
+      fill: #7BA3FE;
+    }
+    67.5% {
+      fill: #CB70FE;
+    }
+    75% {
+      fill: #FC49F5;
+    }
+    87.5% {
+      fill: #FC4EA7;
+    }
+    100% {
+      fill: #FD5258;
+    }
+	}
+  /*
+	"#FECE7A",
+	"#7EFF7A",
+	"#7EFFFF",
+	"#7BA3FE",
+	"#CB70FE",
+	"#FC49F5",
+	"#FC4EA7",
+	"#FD5258",
+  */
+
+	
+/*  @keyframes checkmark-animation {
+    40% {
+      transform: scale(1);
+    }
+    55% {
+      stroke: #cfd8dc;
+      transform: scale(1.2);
+    }
+    70% {
+      transform: scale(1);
+    }
+    100% {
+      stroke-dashoffset: 0;
+      transform: scale(1);
+      stroke: #21b587;
+    }
+  }*/
+	
+</style>
+
+</header>
+<body>
+
+<div class="icon-box">
+
+<svg version="1.1" id="my-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 160 230" style="enable-background:new 0 0 160 220;" xml:space="preserve">
+<style type="text/css">
+	.face{fill:#DDB7B1;}
+	.hair{fill:#3F2C20;}
+	.stash{fill:#756042;}
+	.nose{fill:#CE9691;}
+  
+  .head {
+  		opacity: 1;
+  		transform: scale(0.9);
+  		transform-origin: center;
+      transform: rotate(0deg);
+  	}
+
+  	.head {
+  		animation: head-animation .5s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+  	}
+  
+  	.hair {
+  		animation: hair-animation .5s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+  	}
+    
+  	@keyframes head-animation {
+      25% {
+        transform: rotate(20deg);
+      }
+      50% {
+        transform: rotate(0deg);
+      }
+      75% {
+        transform: rotate(-20deg);
+      }
+      100% {
+        transform: rotate(0deg);
+      }
+  	}
+
+  	@keyframes hair-animation {
+      12.5% {
+        fill: #FECE7A;
+      }
+      25% {
+        fill: #7EFF7A;
+      }
+      37.5% {
+        fill: #7EFFFF;
+      }
+      50% {
+        fill: #7BA3FE;
+      }
+      67.5% {
+        fill: #CB70FE;
+      }
+      75% {
+        fill: #FC49F5;
+      }
+      87.5% {
+        fill: #FC4EA7;
+      }
+      100% {
+        fill: #FD5258;
+      }
+  	}
+</style>
+
+<g class="head">
+<g transform="translate(-885 -75)">
+<!-- face -->
+<path class="face" d="M907.8,115.5c-3.9,14.2,2.6,77.6,5.2,86.6c2.6,9,29.7,80.1,68.5,58.2c38.8-22,42.7-45.2,42.7-45.2
+	s15.5-80.1,0-100.8S907.8,115.5,907.8,115.5z"/>
+ <!-- hair -->
+<path class="hair" d="M1033.1,126.5c-2.6-8.2-12.9-32.7-32.3-35.4c-9.3-1.3-40.1-5.5-50.4-2.7c-10.3,2.7-39.5,12.7-47.8,25.9
+	c-15.5,24.5-3.9,158.8,65.9,161.6c35,1.4,63.3-28.2,63.3-68.9c0-5.1,1.3-15.3,1.2-21.8C1034,171.6,1035.4,133.6,1033.1,126.5z
+	 M991.8,236.9c-3.9-9.5-11.7-6.6-23.3-8.2c-15.5-2.1-18.1,4.4-20.7,9.6c-0.9,1.7-8.3-4.2-9-5.2c-12.5-16.3-22-12.9-28-58.5
+	c0-10.8,1.2-23.8,6-30.4c4-5.4,10.3-9.5,14.2-8.2c3.9,1.4,2.6,16.4,3.9,13.6c1.3-2.7,7.8-19.1,14.2-25.9c6.5-6.8,6.5,16.4,9,17.7
+	c2.6,1.4,14.2-24.5,14.2-24.5s14.2,12.3,14.2,17.7c0,5.5,7.8-8.2,10.3-12.3c0,0,12.9,23.2,12.9,20.4s7.8-12.3,7.8-9.5
+	c0,2.4,12.9,36.5,2.5,64.7C1018.9,216.4,994.9,244.5,991.8,236.9z"/>
+ <!-- Mushtash -->
+<path class="stash" d="M929.7,230.1c0,0,12.9-16.4,18.1-15c5.2,1.4,41.4-1.4,44-1.4c2.6,0,16.8,17.7,16.8,17.7s2.6-32.9-25.9-31.5
+	c-7.7,0.4-28.4,0-31,0C949.1,199.9,929.7,205.5,929.7,230.1z"/>
+<!-- nose -->
+<path class="nose" d="M958.2,178.9c0,28.6-2.6,30.6,12.9,30.6c11.9,0,9-30.6,9-30.6H958.2z"/>
+</g>
+</g>
+
+
+</svg>
+
+</div>
+
+</body>
+
+</html>
