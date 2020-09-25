@@ -1,4 +1,4 @@
-module github.com/n3wscott/d2k
+module tableflip.dev/d2k
 
 go 1.14
 
