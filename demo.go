@@ -1,10 +1,11 @@
 package main
 
 import (
+	"fmt"
 	"os"
 	"tableflip.dev/d2k/pkg/demo"
 )
 
 func main() {
-	demo.Hello(os.Getenv("HELLO"))
+	fmt.Println(demo.Hello(os.Getenv("HELLO")))
 }
