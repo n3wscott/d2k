@@ -69,7 +69,7 @@ const (
     </mask>
   </defs>
 
-<g transform="scale({{ .scale }}, 1)" transform-origin="center">
+<g transform="scale({{ .scale }}, 1) translate({{ .translate }}, 0)">
 <g transform="rotate({{ .rotate }}, 300, 200)">
    <path
      id="head"
@@ -155,23 +155,31 @@ func main() {
 
 	spin := 5 * 360 / len(rotations)
 	scale := 1
+	translate := 0
 
 	for i, r := range rotations {
-		f, err := os.Create(fmt.Sprintf("jamesstrong-%02d.svg", i))
+		file := fmt.Sprintf("jamesstrong-%02d.svg", i)
+		png := fmt.Sprintf("jamesstrong-%02d.png", i)
+
+		f, err := os.Create(file)
 		if err != nil {
 			fmt.Printf("can't party :( %s\n\n", err)
 			continue
 		}
-		fmt.Printf("writing file %s\n", f.Name())
+		//fmt.Printf("writing file %s\n", f.Name())
 
 		if i%4 == 0 {
 			scale = scale * -1
+			if scale < 0 {
+				translate = 600
+			}
 		}
 
 		props := map[string]string{
-			"scale":  fmt.Sprintf("%d", scale),
-			"rotate": r,
-			"spin":   fmt.Sprintf("%d", spin*i),
+			"scale":     fmt.Sprintf("%d", scale),
+			"translate": fmt.Sprintf("%d", translate),
+			"rotate":    r,
+			"spin":      fmt.Sprintf("%d", spin*i),
 		}
 
 		for c := 0; c <= 6; c++ {
@@ -184,6 +192,8 @@ func main() {
 			return
 		}
 		_ = f.Close()
+
+		fmt.Printf("inkscape -w 600 -h 600 %s -o out/%s\n", file, png)
 	}
 }
 
