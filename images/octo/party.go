@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
 	"os"
 	"text/template"
 )
@@ -165,7 +166,7 @@ const (
        stroke:none
      }
    </style>
-<g transform="scale(3.5 3.5) translate(-18-25)">
+<g transform="scale(3.5, 3.5) translate(-18, -25)">
   <g
    id="shield"
    class="shield">
@@ -179,7 +180,7 @@ const (
    d="M 104,190.42999 C 104,190.4 44.5,149.7 44.5,149.65002 44.5,149.7 32.4,55.2 32.4,55.22213 32.4,55.2 70.9,33.3 70.9,33.329967 70.9,33.3 105,33.2 105,33.224998 105,33.2 104,190.4 104,190.42999" />
   </g>
   
-  <g transform="rotate({{.rotate}}, 105, 100)">
+  <g transform="rotate({{.rotate}}, 105, 100) translate({{ .dx }}, {{ .dy }})">
   <g
    id="octo"
    style="display:inline">
@@ -489,22 +490,41 @@ func main() {
 		return
 	}
 
-	for i, r := range rotations {
-		f, err := os.Create(fmt.Sprintf("octo-%02d.svg", i))
+	s1 := rand.NewSource(42)
+	r1 := rand.New(s1)
+
+	//	for i, r := range rotations {
+	for i := 0; i < 24; i++ {
+		//		f, err := os.Create(fmt.Sprintf("octo-%02d.svg", i))
+		f, err := os.Create(fmt.Sprintf("fomo-%02d.svg", i))
 		if err != nil {
 			fmt.Printf("can't party :( %s\n\n", err)
 			continue
 		}
 		fmt.Printf("writing file %s\n", f.Name())
 
+		dx := int(r1.Intn(14)) - 12
+		dy := int(r1.Intn(15)) - 15
+
 		if err := party.Execute(f, map[string]string{
-			"rotate": r,
-			"color1": colors[i%len(colors)],
-			"color2": colors[(i+len(colors)/2)%len(colors)],
+			"rotate": "0",
+			"color1": "#3871c1",
+			"color2": "#50ade5",
+			"dx":     fmt.Sprintf("%d", dx),
+			"dy":     fmt.Sprintf("%d", dy),
 		}); err != nil {
 			fmt.Printf("really can't party :( :( %s\n\n", err)
 			return
 		}
+
+		// if err := party.Execute(f, map[string]string{
+		//   "rotate": r,
+		//   "color1": colors[i%len(colors)],
+		//   "color2": colors[(i+len(colors)/2)%len(colors)],
+		// }); err != nil {
+		//   fmt.Printf("really can't party :( :( %s\n\n", err)
+		//   return
+		// }
 		_ = f.Close()
 	}
 }
